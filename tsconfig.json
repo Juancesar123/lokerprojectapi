@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "dist",
+      "typeRoots": [
+        "./custom_typings",
+        "./node_modules/@types"
+      ],
+    },
+    "include": [
+      "node_modules/@types/puppeteer/index.d.ts"
+    ],
+    "lib": ["es2015"]
+  }
