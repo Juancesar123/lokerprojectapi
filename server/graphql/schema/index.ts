@@ -5,21 +5,27 @@ import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
     users: [User!]!
+    educations: [Education!]!
+    education(educationId: ID!): Education!
     user(userId: ID!): User!
-    carier(carierId: ID!): User!
+    carier(carierId: ID!): Carier!
     cariers:[Carier!]!
     login(email: String!, password: String!): AuthData!
     searchCarier(carierText: String!): [Carier!]!
+    searchEducation(educationText: String!): [Education!]!
   }
   type Mutation {
-    createUser(carierInput: CarierInput): AuthData!
-    updateUser(userId: ID!, updateUser: UpdateUser): Carier!
-    updateCarier(userId: ID!, updateCarier: UpdateCarier): Carier!
+    createEducation(educationInput: EducationInput): Education!
+    educationUpdate(EducationId: ID!, updateEducation: UpdateEducation): Education!
+    createUser(userInput: UserInput): AuthData!
+    updateUser(userId: ID!, updateUser: UpdateUser): AuthData!
     createCarier(carierInput: CarierInput): Carier!
+    updateCarier(userId: ID!, updateCarier: UpdateCarier): Carier!
   }
   type Subscription {
     userAdded: User
-    carierAdded: User
+    carierAdded: Carier
+    educationAdded:Education
   }
   type User {
     _id: ID!
@@ -39,6 +45,10 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
   }
+  type Education{
+    _id: ID!
+    education:String!
+  }
   type AuthData {
     userId: ID!
     token: String!
@@ -56,10 +66,16 @@ const typeDefs = gql`
     position: String!
     description: String
   }
+  input EducationInput{
+    education:String! 
+  }
   input UpdateUser {
     email: String
     name: String
     password: String
+  }
+  input UpdateEducation{
+    education:String! 
   }
   input UpdateCarier {
     name_organization: String

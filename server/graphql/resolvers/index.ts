@@ -5,20 +5,24 @@
 
 import { UserMutation, UserQueries, UserSubscription } from './user';
 import { CarierMutation, CarierQueries, CarierSubscription } from './carier';
+import { EducationMutation, EducationQueries, EducationSubscription } from './education';
 const rootResolver = {
   Query: {
     ...UserQueries,
-    ...CarierQueries
+    ...CarierQueries,
+    ...EducationQueries
     // Add other queries here
   },
   Mutation: {
     ...UserMutation,
-    ...CarierMutation
+    ...CarierMutation,
+    ...EducationMutation
     // Add other mutations here
   },
   Subscription: {
     ...UserSubscription,
-    ...CarierSubscription
+    ...CarierSubscription,
+    ...EducationSubscription
     // Add other subscriptions here
   }
 };

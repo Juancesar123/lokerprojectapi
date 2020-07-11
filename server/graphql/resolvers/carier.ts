@@ -29,7 +29,6 @@ const CarierQueries = {
   },
   searchCarier: async (parent, {carierText}) => {
     try {
-      console.log('/'+carierText+'/i')
       const carier = await Carier.find({ 
         $or:[
           {'position': new RegExp(carierText, 'i') }, 

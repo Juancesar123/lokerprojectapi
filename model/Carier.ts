@@ -5,6 +5,10 @@ export interface CarierInterface extends Document {
   salary: string;
   position:string;
   description:string;
+  picture:string;
+  education:string;
+  title:string;
+  location:string;
 }
 
 const CarierSchema: Schema = new Schema({
@@ -12,7 +16,10 @@ const CarierSchema: Schema = new Schema({
   title: { type: String},
   salary: { type: String },
   position: { type: String },
-  description: { type: String }
+  description: { type: String },
+  education: { type: String },
+  location: { type: String },
+  picture: { type: String }
 });
 
 const Carier = mongoose.model<CarierInterface>("Carier", CarierSchema);

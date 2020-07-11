@@ -42,5 +42,10 @@ const transformCarier = (carier: any) => {
     _id: carier.id,
   };
 };
-
-export { getUser, transformUser,transformCarier };
+const transformEducation = (carier: any) => {
+  return {
+    ...carier._doc,
+    _id: carier.id,
+  };
+};
+export { getUser, transformUser,transformCarier,transformEducation };

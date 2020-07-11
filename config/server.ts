@@ -10,7 +10,7 @@ import * as http from 'http';
 import schema from '../server/graphql/schema/index';
 import Auth from '../server/middleware/auth';
 import config from './index';
-
+import path from 'path';
 class Express {
   public express: express.Application;
   public server: ApolloServer = new ApolloServer(schema);
@@ -38,6 +38,7 @@ class Express {
         return callback(null, true);
       }
     }));
+    this.express.use("/public", express.static(path.join(__dirname, 'public')));
     /**
      *  Middlerware for extracting authToken
      */
