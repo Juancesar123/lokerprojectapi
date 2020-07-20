@@ -32,7 +32,23 @@ const CarierQueries = {
       const carier = await Carier.find({ 
         $or:[
           {'position': new RegExp(carierText, 'i') }, 
-          {'name_organization':new RegExp(carierText, 'i')}
+          {'name_organization':new RegExp(carierText, 'i')},
+        ]
+      });
+      return carier.map((data) => {
+        return transformCarier(data);
+      });
+    } catch (err) {
+      throw err;
+    }
+  },
+  searchComplexCarier: async (parent, {carierText}) => {
+    console.log(carierText)
+    try {
+      const carier = await Carier.find({ 
+        $or:[
+          {'name_organization':carierText.name_organization},
+          {'education':carierText.education},
         ]
       });
       return carier.map((data) => {

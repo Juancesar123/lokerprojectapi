@@ -36,10 +36,17 @@ const transformUser = (user: any) => {
     updatedAt: dateToString(user._doc.updatedAt)
   };
 };
+
 const transformCarier = (carier: any) => {
   return {
     ...carier._doc,
     _id: carier.id,
+  };
+};
+const transformPosition = (position: any) => {
+  return {
+    ...position._doc,
+    _id: position.id,
   };
 };
 const transformEducation = (carier: any) => {
@@ -48,4 +55,10 @@ const transformEducation = (carier: any) => {
     _id: carier.id,
   };
 };
-export { getUser, transformUser,transformCarier,transformEducation };
+const transformPositionCHild = (positionChild: any) => {
+  return {
+    ...positionChild._doc,
+    _id: positionChild.id,
+  };
+};
+export { getUser, transformUser,transformCarier,transformEducation,transformPosition,transformPositionCHild };

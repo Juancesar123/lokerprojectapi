@@ -8,5 +8,5 @@ const PositionChildSchema: Schema = new Schema({
   position_child: { type: String }
 });
 
-const PositionChild = mongoose.model<PositionChildInterface>("Position_child", PositionChildSchema);
+const PositionChild = mongoose.model<PositionChildInterface>("PositionChild", PositionChildSchema);
 export default PositionChild;
