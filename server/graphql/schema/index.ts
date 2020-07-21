@@ -6,6 +6,10 @@ const typeDefs = gql`
   type Query {
     users: [User!]!
     educations: [Education!]!
+    cities: [City!]!
+    city(cityId:ID!):Education!
+    province(provinceId:ID!):Province!
+    provinces: [Province!]!
     positionChilds:[PositionChild!]!
     positionChild(positionChildId:ID!):PositionChild!
     positions: [Position!]!
@@ -21,6 +25,10 @@ const typeDefs = gql`
     searchPositions(positionText: String!): [Position!]!
   }
   type Mutation {
+    createProvince(provinceInput: ProvinceInput): Province!
+    updateProvince(ProvinceId: ID!, updateProvince: UpdateProvince): Province!
+    createCity(cityInput: CityInput): City!
+    updateCity(CityId: ID!, updateCity: UpdateCity): City!
     createPositionChild(positionChildInput: PositionChildInput): PositionChild!
     updateChildPosition(PositionChildId: ID!, updatePositionChild: UpdatePositionChild): PositionChild!
     createPosition(positionInput: PositionInput): Position!
@@ -38,6 +46,8 @@ const typeDefs = gql`
     educationAdded:Education
     positionAdded:Position
     positionChildAdded:PositionChild
+    cityAdded:City
+    provinceAdded:Province
   }
   type User {
     _id: ID!
@@ -62,6 +72,15 @@ const typeDefs = gql`
   type Education{
     _id: ID!
     education:String!
+  }
+  type City{
+    _id: ID!
+    city:String!
+  }
+  type Province{
+    _id: ID!
+    city:[City!]!
+    province:String!
   }
   type Position{
     _id: ID!
@@ -127,6 +146,20 @@ const typeDefs = gql`
   }
   input PositionChildInput {
     position_child: String! 
+  }
+  input UpdateCity {
+    city: String!
+  }
+  input CityInput {
+    city: String! 
+  }
+  input UpdateProvince {
+    city: String!
+    province:String!
+  }
+  input ProvinceInput {
+    city: String! 
+    province:String!
   }
 `;
 

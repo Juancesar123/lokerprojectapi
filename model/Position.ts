@@ -4,7 +4,7 @@ export interface PositionChild {
 }
 export interface PositionInterface extends Document {
     position_parent: string;
-    position_child:PositionChild[];
+    position_child_id:PositionChild[];
 }
 
 const PositionSchema: Schema = new Schema({

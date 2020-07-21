@@ -61,4 +61,16 @@ const transformPositionCHild = (positionChild: any) => {
     _id: positionChild.id,
   };
 };
-export { getUser, transformUser,transformCarier,transformEducation,transformPosition,transformPositionCHild };
+const transformcity = (city: any) => {
+  return {
+    ...city._doc,
+    _id: city.id,
+  };
+};
+const transformprovince = (province: any) => {
+  return {
+    ...province._doc,
+    _id: province.id,
+  };
+};
+export { getUser, transformUser,transformCarier,transformEducation,transformPosition,transformPositionCHild,transformcity,transformprovince};
