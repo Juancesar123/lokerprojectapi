@@ -114,6 +114,7 @@ const typeDefs = gql`
     title: String
     position: String
     education:String
+    location:String
   }
   input EducationInput{
     education:String! 

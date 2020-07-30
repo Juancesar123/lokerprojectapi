@@ -9,7 +9,8 @@ export interface PositionInterface extends Document {
 
 const PositionSchema: Schema = new Schema({
   position_parent: { type: String },
-  position_child_id: [{ type: Schema.Types.ObjectId, ref: 'PositionChild' }]
+  position_child_id: [{ type: Schema.Types.ObjectId, ref: 'PositionChild' }],
+  timestamps: { createdAt: 'created_at' }
 });
 
 const Position = mongoose.model<PositionInterface>("Position", PositionSchema);

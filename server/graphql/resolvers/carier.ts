@@ -49,6 +49,8 @@ const CarierQueries = {
         $or:[
           {'name_organization':carierText.name_organization},
           {'education':carierText.education},
+          {'position':carierText.position},
+          {'location':carierText.location},
         ]
       });
       return carier.map((data) => {

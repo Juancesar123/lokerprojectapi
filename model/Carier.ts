@@ -19,7 +19,8 @@ const CarierSchema: Schema = new Schema({
   description: { type: String },
   education: { type: String },
   location: { type: String },
-  picture: { type: String }
+  picture: { type: String },
+  timestamps: { createdAt: 'created_at' }
 });
 
 const Carier = mongoose.model<CarierInterface>("Carier", CarierSchema);

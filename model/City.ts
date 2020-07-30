@@ -5,7 +5,8 @@ export interface CityInterface extends Document {
 }
 
 const CitySchema: Schema = new Schema({
-  city: { type: String }
+  city: { type: String },
+  timestamps: { createdAt: 'created_at' }
 });
 
 const City = mongoose.model<CityInterface>("City", CitySchema);

@@ -9,7 +9,8 @@ export interface ProvinceInterface extends Document {
 
 const ProvinceSchema: Schema = new Schema({
   province: { type: String },
-  city: [{ type: Schema.Types.ObjectId, ref: 'City' }]
+  city: [{ type: Schema.Types.ObjectId, ref: 'City' }],
+  timestamps: { createdAt: 'created_at' }
 });
 
 const Province = mongoose.model<ProvinceInterface>("Province", ProvinceSchema);

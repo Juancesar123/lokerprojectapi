@@ -5,7 +5,8 @@ export interface EducationInterface extends Document {
 }
 
 const EducationSchema: Schema = new Schema({
-  education: { type: String }
+  education: { type: String },
+  timestamps: { createdAt: 'created_at' }
 });
 
 const Education = mongoose.model<EducationInterface>("Education", EducationSchema);
